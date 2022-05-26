@@ -1,5 +1,5 @@
 //
-//  CategoriesViewModel.swift
+//  TransactionCategoriesView.swift
 //  TechChallenge
 //
 //  Created by Russell Freeman on 26/05/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class CategoriesViewModel: ObservableObject {
+final class TransactionCategoriesViewModel: ObservableObject {
     lazy var categories: [TransactionModel.Category] = {
         TransactionModel.Category.allCases
     }()

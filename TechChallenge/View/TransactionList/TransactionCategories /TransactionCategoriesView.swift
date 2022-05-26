@@ -11,7 +11,7 @@ import SwiftUI
 
 struct TransactionCategoriesView: View {
     
-    let viewModel: CategoriesViewModel = CategoriesViewModel()
+    let viewModel: TransactionCategoriesViewModel = TransactionCategoriesViewModel()
     var categorySelectionHandler: (TransactionModel.Category?) -> Void
     
     init(categorySelectionHandler: @escaping (TransactionModel.Category?) -> Void) {
