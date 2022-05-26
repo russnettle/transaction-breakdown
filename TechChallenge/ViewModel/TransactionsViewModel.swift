@@ -43,7 +43,6 @@ final class TransactionsViewModel: ObservableObject {
         }
         self.transactions = transactionViewModels
         self.selectedCategory = nil
-        
     }
     
     func updateTotalSpend() {

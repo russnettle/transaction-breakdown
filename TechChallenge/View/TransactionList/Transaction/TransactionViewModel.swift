@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-final class TransactionViewModel: ObservableObject {
+final class TransactionViewModel: ObservableObject, Identifiable {
     let transaction: TransactionModel
+    let id: UUID = UUID()
     @Published var isPinned = false
     
     init(transaction: TransactionModel) {
@@ -16,8 +17,3 @@ final class TransactionViewModel: ObservableObject {
     }
 }
 
-extension TransactionViewModel: Identifiable {
-    var id: UUID {
-        UUID()
-    }
-}
