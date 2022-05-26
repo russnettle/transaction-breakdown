@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  TechChallenge
+
+  Created by Russell Freeman on 26/05/2022.
+  
+*/
+
+"transactionsList.categories.all" = "all";
+"transactionsList.categories.accessibility" = "Transaction categories, select an option from this list to filter transactions by a category";
