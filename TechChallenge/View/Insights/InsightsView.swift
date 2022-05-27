@@ -15,6 +15,8 @@ struct InsightsView: View {
         List {
             RingView(insightsViewModel: insightsViewModel)
                 .scaledToFit()
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(insightsViewModel.accessibilityValues)
             
             ForEach(TransactionModel.Category.allCases) { category in
                 HStack {

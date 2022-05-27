@@ -37,7 +37,7 @@ struct RingView: View {
     }
     
     private func percentageText(for categoryIndex: Int) -> String {
-        "\((ratio(for: categoryIndex) * 100).formatted(hasDecimals: false))%"
+        insightsViewModel.percentText(for: categoryIndex)
     }
     
     var body: some View {

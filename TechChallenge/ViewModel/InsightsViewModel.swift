@@ -77,6 +77,10 @@ final class InsightsViewModel: ObservableObject {
         return categoryViewModel.color
     }
     
+    func percentText(for categoryIndex: Int) -> String {
+        "\((ratioForCategoryIndex(for: categoryIndex) * 100).formatted(hasDecimals: false))%"
+    }
+    
     
     private func categoryViewModel(for categoryIndex: Int) -> CategoryViewModel? {
         guard let category = TransactionModel.Category[categoryIndex]
@@ -85,5 +89,15 @@ final class InsightsViewModel: ObservableObject {
             
         }
         return dataSource[category.rawValue]
+    }
+    var accessibilityValues: String {
+        var summaryString = ""
+        for categoryIndex in TransactionModel.Category.allCases.indices {
+            let title = TransactionModel.Category[categoryIndex]?.rawValue ?? ""
+            let category = NSLocalizedString("insights.category", comment: "")
+            let spend = NSLocalizedString("insights.spend", comment: "")
+            summaryString += "\(category) \(title), \(spend) \(percentText(for: categoryIndex)). \n"
+        }
+        return summaryString
     }
 }

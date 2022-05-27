@@ -9,3 +9,6 @@
 "transactionsList.categories.all" = "all";
 "transactionsList.categories.accessibility" = "Transaction categories, select an option from this list to filter transactions by a category";
 "transactionsList.totalSpend.summaryText" = "Total spent:";
+"insights.category" = "Category";
+"insights.spend" = "has a spend of";
+

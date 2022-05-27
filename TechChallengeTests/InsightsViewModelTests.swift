@@ -143,5 +143,45 @@ class InsightsViewModelTests: XCTestCase {
         XCTAssertEqual(shoppingOffset, 0.2930797599247958)
         XCTAssertEqual(travelOffset, 0.48109046207245654)
     }
+
+    
+    func testPercentWithNoPinnedTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let transactionsViewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        let viewModel = InsightsViewModel(transactionViewModels: transactionsViewModel.transactions)
+        
+        let foodPercent = viewModel.percentText(for: 0)
+        let healthPercent = viewModel.percentText(for: 1)
+        let entetainmentPercent = viewModel.percentText(for: 2)
+        let shoppingPercent = viewModel.percentText(for: 3)
+        let travelPercent = viewModel.percentText(for: 4)
+        
+        XCTAssertEqual(foodPercent, "16%")
+        XCTAssertEqual(healthPercent, "5%")
+        XCTAssertEqual(entetainmentPercent, "18%")
+        XCTAssertEqual(shoppingPercent, "17%")
+        XCTAssertEqual(travelPercent, "46%")
+    }
+    
+    func testPercentWithPinnedTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let transactionsViewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        transactionsViewModel.transactions[3].isPinned = true
+        transactionsViewModel.transactions[2].isPinned = true
+        transactionsViewModel.transactions[7].isPinned = true
+        let viewModel = InsightsViewModel(transactionViewModels: transactionsViewModel.transactions)
+        
+        let foodPercent = viewModel.percentText(for: 0)
+        let healthPercent = viewModel.percentText(for: 1)
+        let entetainmentPercent = viewModel.percentText(for: 2)
+        let shoppingPercent = viewModel.percentText(for: 3)
+        let travelPercent = viewModel.percentText(for: 4)
+        
+        XCTAssertEqual(foodPercent, "9%")
+        XCTAssertEqual(healthPercent, "0%")
+        XCTAssertEqual(entetainmentPercent, "20%")
+        XCTAssertEqual(shoppingPercent, "19%")
+        XCTAssertEqual(travelPercent, "52%")
+    }
     
 }
