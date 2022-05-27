@@ -176,8 +176,9 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = nil
-         
-        XCTAssertEqual(viewModel.totalSpend, 472.0799999999999)
+        // Rounding to match UI - eg //472.0799999999999 into 472.08
+        let roundedTotal  = (viewModel.totalSpend * 100).rounded()/100
+        XCTAssertEqual(roundedTotal, 472.08)
     }
     
     func testCategoryTotalWhenPinningTransactions() {
@@ -190,6 +191,7 @@ class TransactionsViewModelTests: XCTestCase {
         viewModel.selectedCategory = nil
          
         XCTAssertEqual(viewModel.totalSpend, 334.49)
+        
     }
 }
 

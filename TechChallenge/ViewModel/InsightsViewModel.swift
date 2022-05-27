@@ -44,6 +44,11 @@ final class InsightsViewModel: ObservableObject {
         }
     }
     
+    func total(for category: TransactionModel.Category) -> String {
+       
+        return dataSource[category.rawValue]?.total ?? "$0.0"
+    }
+    
     func ratioForCategoryIndex(for categoryIndex: Int) -> Double {
         guard let categoryViewModel = categoryViewModel(for: categoryIndex)
         else {

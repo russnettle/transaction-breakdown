@@ -13,11 +13,13 @@ struct RingView: View {
     @ObservedObject var  insightsViewModel: InsightsViewModel
     
     private func ratio(for categoryIndex: Int) -> Double {
-        insightsViewModel.ratioForCategoryIndex(for: categoryIndex)
+        print("index\(categoryIndex) ratio : \(insightsViewModel.ratioForCategoryIndex(for: categoryIndex))")
+        return insightsViewModel.ratioForCategoryIndex(for: categoryIndex)
     }
     
     private func offset(for categoryIndex: Int) -> Double {
-        insightsViewModel.offset(for: categoryIndex)
+        print("index\(categoryIndex) ratio : \(insightsViewModel.offset(for: categoryIndex))")
+        return insightsViewModel.offset(for: categoryIndex)
     }
 
     private func gradient(for categoryIndex: Int) -> AngularGradient {

@@ -22,7 +22,7 @@ struct InsightsView: View {
                         .font(.headline)
                         .foregroundColor(category.color)
                     Spacer()
-                    Text(insightsViewModel.dataSource[category.rawValue]?.total ?? "")
+                    Text(insightsViewModel.total(for: category))
                         .bold()
                         .secondary()
                 }

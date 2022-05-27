@@ -10,6 +10,7 @@
 		2105F7C7283FC67C00089099 /* TransactionSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105F7C6283FC67C00089099 /* TransactionSummaryViewModel.swift */; };
 		2105F7CA283FD8FC00089099 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105F7C9283FD8FC00089099 /* TransactionViewModel.swift */; };
 		2105F7CC2840224400089099 /* InsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105F7CB2840224400089099 /* InsightsViewModel.swift */; };
+		2105F7CE2840D63100089099 /* InsightsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105F7CD2840D63100089099 /* InsightsViewModelTests.swift */; };
 		21534156283FA82100EF3E19 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21534155283FA82100EF3E19 /* TransactionsViewModel.swift */; };
 		21534158283FA97600EF3E19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21534157283FA97600EF3E19 /* Localizable.strings */; };
 		2153415B283FAA0600EF3E19 /* TransactionCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153415A283FAA0600EF3E19 /* TransactionCategoriesViewModel.swift */; };
@@ -50,6 +51,7 @@
 		2105F7C6283FC67C00089099 /* TransactionSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSummaryViewModel.swift; sourceTree = "<group>"; };
 		2105F7C9283FD8FC00089099 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		2105F7CB2840224400089099 /* InsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsViewModel.swift; sourceTree = "<group>"; };
+		2105F7CD2840D63100089099 /* InsightsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsViewModelTests.swift; sourceTree = "<group>"; };
 		21534155283FA82100EF3E19 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		21534157283FA97600EF3E19 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2153415A283FAA0600EF3E19 /* TransactionCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				3C296EDD26B4402A006DF667 /* Info.plist */,
 				21534160283FB04900EF3E19 /* TransactionsViewModelTests.swift */,
+				2105F7CD2840D63100089099 /* InsightsViewModelTests.swift */,
 			);
 			path = TechChallengeTests;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21534161283FB04900EF3E19 /* TransactionsViewModelTests.swift in Sources */,
+				2105F7CE2840D63100089099 /* InsightsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
