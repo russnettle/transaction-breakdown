@@ -15,8 +15,9 @@ extension Text {
             .foregroundColor(.accentColor)
     }
     
-    func secondary() -> some View {
+    func secondary(weight: Font.Weight = .regular) -> some View {
         self
+            .fontWeight(weight)
             .font(.body)
             .foregroundColor(.accentColor)
     }

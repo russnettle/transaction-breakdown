@@ -97,39 +97,39 @@ extension RingView {
 }
 
 #if DEBUG
-//struct RingView_Previews: PreviewProvider {
-//    static var sampleRing: some View {
-//        ZStack {
-//            RingView.PartialCircleShape(offset: 0.0, ratio: 0.15)
-//                .stroke(
-//                    Color.red,
-//                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
-//                )
-//
-//            RingView.PartialCircleShape(offset: 0.15, ratio: 0.5)
-//                .stroke(
-//                    Color.green,
-//                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
-//                )
-//
-//            RingView.PartialCircleShape(offset: 0.65, ratio: 0.35)
-//                .stroke(
-//                    Color.blue,
-//                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
-//                )
-//        }
-//    }
-    
-//    static var previews: some View {
-//        VStack {
-//            sampleRing
-//                .scaledToFit()
-//
-//            RingView(transactions: ModelData.sampleTransactions)
-//                .scaledToFit()
-//        }
-//        .padding()
-//        .previewLayout(.sizeThatFits)
-//    }
-//}
+struct RingView_Previews: PreviewProvider {
+    static var sampleRing: some View {
+        ZStack {
+            RingView.PartialCircleShape(offset: 0.0, ratio: 0.15)
+                .stroke(
+                    Color.red,
+                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
+                )
+
+            RingView.PartialCircleShape(offset: 0.15, ratio: 0.5)
+                .stroke(
+                    Color.green,
+                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
+                )
+
+            RingView.PartialCircleShape(offset: 0.65, ratio: 0.35)
+                .stroke(
+                    Color.blue,
+                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
+                )
+        }
+    }
+   
+    static var previews: some View {
+        VStack {
+            sampleRing
+                .scaledToFit()
+
+            RingView(insightsViewModel: InsightsViewModel(transactionViewModels: TransactionsViewModel(transactions: ModelData.sampleTransactions).transactions))
+                .scaledToFit()
+        }
+        .padding()
+        .previewLayout(.sizeThatFits)
+    }
+}
 #endif

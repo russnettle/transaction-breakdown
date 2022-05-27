@@ -36,7 +36,7 @@ struct InsightsView: View {
 #if DEBUG
 struct InsightsView_Previews: PreviewProvider {
     static var previews: some View {
-        InsightsView(insightsViewModel: InsightsViewModel(transactionViewModels: []))
+        InsightsView(insightsViewModel: InsightsViewModel(transactionViewModels: TransactionsViewModel(transactions: ModelData.sampleTransactions).transactions))
             .previewLayout(.sizeThatFits)
     }
 }

@@ -15,7 +15,6 @@ struct TransactionSummaryView: View {
     var body: some View {
         HStack (alignment: .bottom){
             Text(NSLocalizedString("transactionsList.totalSpend.summaryText", comment: ""))
-                .fontWeight(.regular)
                 .secondary()
             Spacer()
             VStack(alignment: .trailing, spacing: 5){
@@ -23,6 +22,7 @@ struct TransactionSummaryView: View {
                     .font(.headline)
                     .foregroundColor(viewModel.spendCategoryTitleColor)
                 Text(viewModel.totalSpend)
+                    .secondary(weight: .bold)
             }
         }
         .padding()
