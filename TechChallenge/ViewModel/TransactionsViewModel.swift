@@ -49,17 +49,4 @@ final class TransactionsViewModel: ObservableObject {
         totalSpendViewModel = TransactionSummaryViewModel(category: selectedCategory, totalSpend: totalSpend)
     }
     
-    func filterCategories()-> [TransactionViewModel] {
-        
-        guard let category = selectedCategory else {
-            return transactions
-        }
-        return transactions.filter {
-            $0.transaction.category == category
-        }
-    }
-    
-    
-    
-    
 }
