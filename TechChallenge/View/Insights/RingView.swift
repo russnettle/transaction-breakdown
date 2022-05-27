@@ -13,15 +13,13 @@ struct RingView: View {
     @ObservedObject var  insightsViewModel: InsightsViewModel
     
     private func ratio(for categoryIndex: Int) -> Double {
-        print("index\(categoryIndex) ratio : \(insightsViewModel.ratioForCategoryIndex(for: categoryIndex))")
-        return insightsViewModel.ratioForCategoryIndex(for: categoryIndex)
+        insightsViewModel.ratioForCategoryIndex(for: categoryIndex)
     }
     
     private func offset(for categoryIndex: Int) -> Double {
-        print("index\(categoryIndex) ratio : \(insightsViewModel.offset(for: categoryIndex))")
-        return insightsViewModel.offset(for: categoryIndex)
+        insightsViewModel.offset(for: categoryIndex)
     }
-
+    
     private func gradient(for categoryIndex: Int) -> AngularGradient {
         let color = insightsViewModel.color(for: categoryIndex)
         return AngularGradient(
@@ -105,13 +103,13 @@ struct RingView_Previews: PreviewProvider {
                     Color.red,
                     style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
                 )
-
+            
             RingView.PartialCircleShape(offset: 0.15, ratio: 0.5)
                 .stroke(
                     Color.green,
                     style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
                 )
-
+            
             RingView.PartialCircleShape(offset: 0.65, ratio: 0.35)
                 .stroke(
                     Color.blue,
@@ -119,12 +117,12 @@ struct RingView_Previews: PreviewProvider {
                 )
         }
     }
-   
+    
     static var previews: some View {
         VStack {
             sampleRing
                 .scaledToFit()
-
+            
             RingView(insightsViewModel: InsightsViewModel(transactionViewModels: TransactionsViewModel(transactions: ModelData.sampleTransactions).transactions))
                 .scaledToFit()
         }
