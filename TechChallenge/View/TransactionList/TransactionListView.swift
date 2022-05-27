@@ -15,6 +15,7 @@ struct TransactionListView: View {
             TransactionCategoriesView { selectedCategory in
                 viewModel.selectedCategory = selectedCategory
             }
+            
             List {
                 ForEach(viewModel.filteredCategories) { transactionViewModel in
                     TransactionView(viewModel: transactionViewModel) { isPinned in
@@ -25,10 +26,11 @@ struct TransactionListView: View {
             .animation(.easeIn)
             .listStyle(PlainListStyle())
             .listRowBackground(Color.clear)
+            
             TransactionSummaryView(viewModel: viewModel.totalSpendViewModel)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Transactions")
+        .navigationTitle(viewModel.title)
     }
 }
 

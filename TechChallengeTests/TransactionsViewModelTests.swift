@@ -19,7 +19,7 @@ class TransactionsViewModelTests: XCTestCase {
         return true
     }
     
-
+    
     func testInitalValues() {
         let sampleTransactions = ModelData.sampleTransactions
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
@@ -32,25 +32,25 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = .food
-         
+        
         XCTAssertEqual(viewModel.filteredCategories.count, 5)
     }
     
     func testFilteredByHealthCount() {
         let sampleTransactions = ModelData.sampleTransactions
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
-       
+        
         viewModel.selectedCategory = .health
-         
+        
         XCTAssertEqual(viewModel.filteredCategories.count, 1)
     }
     
     func testFilteredByEntertainmentCount() {
         let sampleTransactions = ModelData.sampleTransactions
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
-       
+        
         viewModel.selectedCategory = .entertainment
-         
+        
         XCTAssertEqual(viewModel.filteredCategories.count, 1)
     }
     
@@ -59,17 +59,17 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = .shopping
-         
+        
         XCTAssertEqual(viewModel.filteredCategories.count, 3)
     }
-
+    
     
     func testFilteredByTravelCount() {
         let sampleTransactions = ModelData.sampleTransactions
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
-       
+        
         viewModel.selectedCategory = .travel
-         
+        
         XCTAssertEqual(viewModel.filteredCategories.count, 3)
     }
     
@@ -131,7 +131,7 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = .food
-         
+        
         XCTAssertEqual(viewModel.totalSpend, 74.28)
     }
     
@@ -140,7 +140,7 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = .health
-         
+        
         XCTAssertEqual(viewModel.totalSpend, 21.53)
     }
     
@@ -149,7 +149,7 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = .entertainment
-         
+        
         XCTAssertEqual(viewModel.totalSpend, 82.99)
     }
     
@@ -158,7 +158,7 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = .shopping
-         
+        
         XCTAssertEqual(viewModel.totalSpend, 78.00)
     }
     
@@ -167,7 +167,7 @@ class TransactionsViewModelTests: XCTestCase {
         let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
         
         viewModel.selectedCategory = .travel
-         
+        
         XCTAssertEqual(viewModel.totalSpend, 215.28)
     }
     
@@ -189,7 +189,7 @@ class TransactionsViewModelTests: XCTestCase {
         viewModel.transactions[1].isPinned = true
         
         viewModel.selectedCategory = nil
-         
+        
         XCTAssertEqual(viewModel.totalSpend, 334.49)
         
     }

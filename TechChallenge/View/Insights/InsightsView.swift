@@ -9,14 +9,14 @@ import SwiftUI
 
 struct InsightsView: View {
     let transactions: [TransactionModel] = ModelData.sampleTransactions
-    @ObservedObject var insightsViewModel: InsightsViewModel
+    @ObservedObject var viewModel: InsightsViewModel
     
     var body: some View {
         List {
-            RingView(insightsViewModel: insightsViewModel)
+            RingView(viewModel: viewModel)
                 .scaledToFit()
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel(insightsViewModel.accessibilityValues)
+                .accessibilityLabel(viewModel.accessibilityValues)
             
             ForEach(TransactionModel.Category.allCases) { category in
                 HStack {
@@ -24,21 +24,21 @@ struct InsightsView: View {
                         .font(.headline)
                         .foregroundColor(category.color)
                     Spacer()
-                    Text(insightsViewModel.total(for: category))
+                    Text(viewModel.total(for: category))
                         .bold()
                         .secondary()
                 }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Insights")
+        .navigationTitle(viewModel.title)
     }
 }
 
 #if DEBUG
 struct InsightsView_Previews: PreviewProvider {
     static var previews: some View {
-        InsightsView(insightsViewModel: InsightsViewModel(transactionViewModels: TransactionsViewModel(transactions: ModelData.sampleTransactions).transactions))
+        InsightsView(viewModel: InsightsViewModel(transactionViewModels: TransactionsViewModel(transactions: ModelData.sampleTransactions).transactions))
             .previewLayout(.sizeThatFits)
     }
 }

@@ -31,8 +31,7 @@ struct TransactionView: View {
                 }) {
                     Image(systemName: viewModel.isPinned ? "pin.slash.fill" : "pin.fill")
                 }
-                .accessibilityLabel(Text(viewModel.isPinned ? "Unpin Transaction" : "Pin Transaction"))
-                .accessibilityValue(Text(viewModel.isPinned ? "Pinned Transaction" : "Unpinned Transaction"))
+                .accessibilityLabel(Text(viewModel.accessibilityText))
             }
             if !viewModel.isPinned {
                 HStack {

@@ -21,35 +21,36 @@ struct TransactionCategoriesView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { value in
-            HStack(spacing: 7) {
-                Button(action: {
-                    categorySelectionHandler(nil)
-                    withAnimation {
-                        value.scrollTo(viewModel.allCategoriesText, anchor: .center)
-                    }
-                }) {
-                    Text( viewModel.allCategoriesText)
-                        .category()
-                }.category(color: .black)
-                
-                ForEach(viewModel.categories) { transactionCategory in
+                HStack(spacing: 7) {
                     Button(action: {
-                        categorySelectionHandler(transactionCategory)
+                        categorySelectionHandler(nil)
                         withAnimation {
-                            value.scrollTo(transactionCategory.rawValue, anchor: .center)
+                            value.scrollTo(viewModel.allCategoriesText, anchor: .center)
                         }
                     }) {
-                        Text(transactionCategory.rawValue)
+                        Text( viewModel.allCategoriesText)
                             .category()
+                    }.category(color: .black)
+                    
+                    ForEach(viewModel.categories) { transactionCategory in
+                        Button(action: {
+                            categorySelectionHandler(transactionCategory)
+                            withAnimation {
+                                value.scrollTo(transactionCategory.rawValue, anchor: .center)
+                            }
+                        }) {
+                            Text(transactionCategory.rawValue)
+                                .category()
+                        }
+                        .category(color: transactionCategory.color)
                     }
-                    .category(color: transactionCategory.color)
-                }
+                }.padding(.leading, 10)
+                .accessibilityHint(viewModel.accessibilityHint)
+                
             }
-            .accessibilityHint(viewModel.accessibilityHint)
-            
-            }
-        }.padding(15)
-        .background(Color.accentColor.opacity(0.8))
+        }
+        .padding( .vertical, 15)
+            .background(Color.accentColor.opacity(0.8))
         
         
     }

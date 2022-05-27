@@ -10,18 +10,18 @@ import SwiftUI
 fileprivate typealias Category = TransactionModel.Category
 
 struct RingView: View {
-    @ObservedObject var  insightsViewModel: InsightsViewModel
+    @ObservedObject var  viewModel: InsightsViewModel
     
     private func ratio(for categoryIndex: Int) -> Double {
-        insightsViewModel.ratioForCategoryIndex(for: categoryIndex)
+        viewModel.ratioForCategoryIndex(for: categoryIndex)
     }
     
     private func offset(for categoryIndex: Int) -> Double {
-        insightsViewModel.offset(for: categoryIndex)
+        viewModel.offset(for: categoryIndex)
     }
     
     private func gradient(for categoryIndex: Int) -> AngularGradient {
-        let color = insightsViewModel.color(for: categoryIndex)
+        let color = viewModel.color(for: categoryIndex)
         return AngularGradient(
             gradient: Gradient(colors: [color.unsaturated, color]),
             center: .center,
@@ -37,7 +37,7 @@ struct RingView: View {
     }
     
     private func percentageText(for categoryIndex: Int) -> String {
-        insightsViewModel.percentText(for: categoryIndex)
+        viewModel.percentText(for: categoryIndex)
     }
     
     var body: some View {
@@ -123,7 +123,7 @@ struct RingView_Previews: PreviewProvider {
             sampleRing
                 .scaledToFit()
             
-            RingView(insightsViewModel: InsightsViewModel(transactionViewModels: TransactionsViewModel(transactions: ModelData.sampleTransactions).transactions))
+            RingView(viewModel: InsightsViewModel(transactionViewModels: TransactionsViewModel(transactions: ModelData.sampleTransactions).transactions))
                 .scaledToFit()
         }
         .padding()

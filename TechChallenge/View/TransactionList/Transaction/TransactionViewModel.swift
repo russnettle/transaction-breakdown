@@ -12,6 +12,10 @@ final class TransactionViewModel: ObservableObject, Identifiable {
     let id: UUID = UUID()
     @Published var isPinned = false
     
+    var accessibilityText: String {
+        isPinned ? NSLocalizedString("transactionsList.unpin", comment: "") :  NSLocalizedString("transactionsList.pin", comment: "")
+    }
+    
     init(transaction: TransactionModel) {
         self.transaction = transaction
     }

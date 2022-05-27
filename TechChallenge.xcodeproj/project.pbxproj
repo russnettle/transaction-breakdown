@@ -112,8 +112,6 @@
 		21534154283FA7F400EF3E19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				21534155283FA82100EF3E19 /* TransactionsViewModel.swift */,
-				2105F7CB2840224400089099 /* InsightsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -190,6 +188,7 @@
 		3CE226C826B2E42800B3D085 /* TransactionList */ = {
 			isa = PBXGroup;
 			children = (
+				21534155283FA82100EF3E19 /* TransactionsViewModel.swift */,
 				3CE226B426B0523C00B3D085 /* TransactionListView.swift */,
 				2105F7C8283FD8DA00089099 /* Transaction */,
 				21534162283FB4FC00EF3E19 /* TransactionsSummary */,
@@ -223,6 +222,7 @@
 		3CE226CB26B2E44E00B3D085 /* Insights */ = {
 			isa = PBXGroup;
 			children = (
+				2105F7CB2840224400089099 /* InsightsViewModel.swift */,
 				3CE226C626B2E41E00B3D085 /* InsightsView.swift */,
 				3CE01C6126B2E59C0091B7BA /* RingView.swift */,
 			);

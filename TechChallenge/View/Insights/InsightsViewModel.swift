@@ -26,6 +26,7 @@ final class InsightsViewModel: ObservableObject {
         }
     }
     
+    let title = NSLocalizedString("insights.title", comment: "")
     var dataSource = [String: CategoryViewModel]()
     var totalSpend: Double
     
@@ -45,7 +46,7 @@ final class InsightsViewModel: ObservableObject {
     }
     
     func total(for category: TransactionModel.Category) -> String {
-       
+        
         return dataSource[category.rawValue]?.total ?? "$0.0"
     }
     

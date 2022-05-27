@@ -12,6 +12,6 @@ extension Button {
         self
             .padding(8)
             .background(color)
-            .cornerRadius(15.0)
+            .cornerRadius(20.0)
     }
 }

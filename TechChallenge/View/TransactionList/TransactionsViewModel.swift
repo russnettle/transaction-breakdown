@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class TransactionsViewModel: ObservableObject {
+    let title = NSLocalizedString("transactions.title", comment: "")
     @Published var transactions: [TransactionViewModel]
     
     @Published var selectedCategory: TransactionModel.Category? {
