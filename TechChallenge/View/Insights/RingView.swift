@@ -10,24 +10,18 @@ import SwiftUI
 fileprivate typealias Category = TransactionModel.Category
 
 struct RingView: View {
-    let transactions: [TransactionModel]
+    @ObservedObject var  insightsViewModel: InsightsViewModel
     
     private func ratio(for categoryIndex: Int) -> Double {
-        // TODO: calculate ratio for each category according to cummulative expense
-        
-        // Returning sample value
-        0.2
+        insightsViewModel.ratioForCategoryIndex(for: categoryIndex)
     }
     
     private func offset(for categoryIndex: Int) -> Double {
-        // TODO: calculate offset for each category according to cummulative expense
-        
-        // Returning sample value
-        Double(categoryIndex) * 0.2
+        insightsViewModel.offset(for: categoryIndex)
     }
 
     private func gradient(for categoryIndex: Int) -> AngularGradient {
-        let color = Category[categoryIndex]?.color ?? .black
+        let color = insightsViewModel.color(for: categoryIndex)
         return AngularGradient(
             gradient: Gradient(colors: [color.unsaturated, color]),
             center: .center,
@@ -101,39 +95,39 @@ extension RingView {
 }
 
 #if DEBUG
-struct RingView_Previews: PreviewProvider {
-    static var sampleRing: some View {
-        ZStack {
-            RingView.PartialCircleShape(offset: 0.0, ratio: 0.15)
-                .stroke(
-                    Color.red,
-                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
-                )
-            
-            RingView.PartialCircleShape(offset: 0.15, ratio: 0.5)
-                .stroke(
-                    Color.green,
-                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
-                )
-                
-            RingView.PartialCircleShape(offset: 0.65, ratio: 0.35)
-                .stroke(
-                    Color.blue,
-                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
-                )
-        }
-    }
+//struct RingView_Previews: PreviewProvider {
+//    static var sampleRing: some View {
+//        ZStack {
+//            RingView.PartialCircleShape(offset: 0.0, ratio: 0.15)
+//                .stroke(
+//                    Color.red,
+//                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
+//                )
+//
+//            RingView.PartialCircleShape(offset: 0.15, ratio: 0.5)
+//                .stroke(
+//                    Color.green,
+//                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
+//                )
+//
+//            RingView.PartialCircleShape(offset: 0.65, ratio: 0.35)
+//                .stroke(
+//                    Color.blue,
+//                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
+//                )
+//        }
+//    }
     
-    static var previews: some View {
-        VStack {
-            sampleRing
-                .scaledToFit()
-            
-            RingView(transactions: ModelData.sampleTransactions)
-                .scaledToFit()
-        }
-        .padding()
-        .previewLayout(.sizeThatFits)
-    }
-}
+//    static var previews: some View {
+//        VStack {
+//            sampleRing
+//                .scaledToFit()
+//
+//            RingView(transactions: ModelData.sampleTransactions)
+//                .scaledToFit()
+//        }
+//        .padding()
+//        .previewLayout(.sizeThatFits)
+//    }
+//}
 #endif

@@ -20,9 +20,13 @@ struct TransactionCategoriesView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
+            ScrollViewReader { value in
             HStack(spacing: 7) {
                 Button(action: {
                     categorySelectionHandler(nil)
+                    withAnimation {
+                        value.scrollTo(viewModel.allCategoriesText, anchor: .center)
+                    }
                 }) {
                     Text( viewModel.allCategoriesText)
                         .category()
@@ -31,6 +35,9 @@ struct TransactionCategoriesView: View {
                 ForEach(viewModel.categories) { transactionCategory in
                     Button(action: {
                         categorySelectionHandler(transactionCategory)
+                        withAnimation {
+                            value.scrollTo(transactionCategory.rawValue, anchor: .center)
+                        }
                     }) {
                         Text(transactionCategory.rawValue)
                             .category()
@@ -39,9 +46,11 @@ struct TransactionCategoriesView: View {
                 }
             }
             .accessibilityHint(viewModel.accessibilityHint)
-            .padding(15)
-        }
+            
+            }
+        }.padding(15)
         .background(Color.accentColor.opacity(0.8))
+        
         
     }
     

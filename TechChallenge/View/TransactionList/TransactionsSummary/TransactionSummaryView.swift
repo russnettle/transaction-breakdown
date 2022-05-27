@@ -30,7 +30,7 @@ struct TransactionSummaryView: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.accentColor, lineWidth: 2)
         )
-        .padding(5)
+        .padding(8)
         
     }
 }

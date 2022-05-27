@@ -20,10 +20,11 @@ struct TransactionListView: View {
                     TransactionView(viewModel: transactionViewModel) { isPinned in
                         viewModel.updateTotalSpend()
                     }
-                }
+                }.listRowBackground(Color.clear)
             }
             .animation(.easeIn)
             .listStyle(PlainListStyle())
+            .listRowBackground(Color.clear)
             TransactionSummaryView(viewModel: viewModel.totalSpendViewModel)
         }
         .navigationBarTitleDisplayMode(.inline)

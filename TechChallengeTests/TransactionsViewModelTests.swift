@@ -9,6 +9,16 @@ import XCTest
 @testable import TechChallenge
 
 class TransactionsViewModelTests: XCTestCase {
+    
+    func transactionOnlyContains(category: TransactionModel.Category, transactionViewModels: [TransactionViewModel]) -> Bool {
+        for transactionViewModel in transactionViewModels {
+            if transactionViewModel.transaction.category != category {
+                return false
+            }
+        }
+        return true
+    }
+    
 
     func testInitalValues() {
         let sampleTransactions = ModelData.sampleTransactions
@@ -52,6 +62,7 @@ class TransactionsViewModelTests: XCTestCase {
          
         XCTAssertEqual(viewModel.filteredCategories.count, 3)
     }
+
     
     func testFilteredByTravelCount() {
         let sampleTransactions = ModelData.sampleTransactions
@@ -61,6 +72,59 @@ class TransactionsViewModelTests: XCTestCase {
          
         XCTAssertEqual(viewModel.filteredCategories.count, 3)
     }
+    
+    //Test filtering transactions only contains correct categories
+    
+    func testFilteredByFoodOnlyContainsFoodTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        
+        viewModel.selectedCategory = .food
+        let containsOnlySpecifiedCategory = transactionOnlyContains(category: viewModel.selectedCategory!, transactionViewModels: viewModel.filteredCategories)
+        
+        XCTAssertTrue(containsOnlySpecifiedCategory)
+    }
+    
+    func testFilteredByHealthOnlyContainsHealthTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        
+        viewModel.selectedCategory = .health
+        let containsOnlySpecifiedCategory = transactionOnlyContains(category: viewModel.selectedCategory!, transactionViewModels: viewModel.filteredCategories)
+        
+        XCTAssertTrue(containsOnlySpecifiedCategory)
+    }
+    func testFilteredByEntertainmentOnlyContainsEntertainmentTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        
+        viewModel.selectedCategory = .health
+        let containsOnlySpecifiedCategory = transactionOnlyContains(category: viewModel.selectedCategory!, transactionViewModels: viewModel.filteredCategories)
+        
+        XCTAssertTrue(containsOnlySpecifiedCategory)
+    }
+    
+    func testFilteredByShoppingOnlyContainsShoppingTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        
+        viewModel.selectedCategory = .shopping
+        let containsOnlySpecifiedCategory = transactionOnlyContains(category: viewModel.selectedCategory!, transactionViewModels: viewModel.filteredCategories)
+        
+        XCTAssertTrue(containsOnlySpecifiedCategory)
+    }
+    
+    func testFilteredByTravelOnlyContainsTravelTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        
+        viewModel.selectedCategory = .travel
+        let containsOnlySpecifiedCategory = transactionOnlyContains(category: viewModel.selectedCategory!, transactionViewModels: viewModel.filteredCategories)
+        
+        XCTAssertTrue(containsOnlySpecifiedCategory)
+    }
+    
+    // Test totals for unpinned
     
     func testFoodCategoryTotal() {
         let sampleTransactions = ModelData.sampleTransactions
@@ -113,6 +177,20 @@ class TransactionsViewModelTests: XCTestCase {
         
         viewModel.selectedCategory = nil
          
-        XCTAssertEqual(viewModel.totalSpend, 472.08)
+        XCTAssertEqual(viewModel.totalSpend, 472.0799999999999)
+    }
+    
+    func testCategoryTotalWhenPinningTransactions() {
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        
+        viewModel.transactions[0].isPinned = true
+        viewModel.transactions[1].isPinned = true
+        
+        viewModel.selectedCategory = nil
+         
+        XCTAssertEqual(viewModel.totalSpend, 334.49)
     }
 }
+
+

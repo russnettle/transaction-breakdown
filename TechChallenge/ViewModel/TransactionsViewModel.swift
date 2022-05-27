@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class TransactionsViewModel: ObservableObject {
-    var transactions: [TransactionViewModel]
+    @Published var transactions: [TransactionViewModel]
     
     @Published var selectedCategory: TransactionModel.Category? {
         didSet {
