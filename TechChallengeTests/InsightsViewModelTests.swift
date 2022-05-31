@@ -10,7 +10,7 @@ import XCTest
 @testable import TechChallenge
 
 class InsightsViewModelTests: XCTestCase {
-
+    
     func testSpendTotalsForNoPinnedTransactions() {
         let sampleTransactions = ModelData.sampleTransactions
         let transactionsViewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
@@ -38,7 +38,7 @@ class InsightsViewModelTests: XCTestCase {
         transactionsViewModel.transactions[1].isPinned = true
         transactionsViewModel.transactions[2].isPinned = true
         let viewModel = InsightsViewModel(transactionViewModels: transactionsViewModel.transactions)
-    
+        
         
         let foodTotal = viewModel.total(for: .food)
         let healthTotal = viewModel.total(for: .health)
@@ -46,7 +46,7 @@ class InsightsViewModelTests: XCTestCase {
         let shoppingTotal = viewModel.total(for: .shopping)
         let travelTotal = viewModel.total(for: .travel)
         let total = viewModel.totalSpend
-
+        
         
         XCTAssertEqual(foodTotal, "$48.96")
         XCTAssertEqual(healthTotal, "$21.53")
@@ -55,7 +55,7 @@ class InsightsViewModelTests: XCTestCase {
         XCTAssertEqual(travelTotal, "$215.28")
         XCTAssertEqual(total, 309.16999999999996)
     }
-
+    
     func testRatiosNoPinnedTransactions() {
         let sampleTransactions = ModelData.sampleTransactions
         let transactionsViewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
@@ -143,7 +143,7 @@ class InsightsViewModelTests: XCTestCase {
         XCTAssertEqual(shoppingOffset, 0.2930797599247958)
         XCTAssertEqual(travelOffset, 0.48109046207245654)
     }
-
+    
     
     func testPercentWithNoPinnedTransactions() {
         let sampleTransactions = ModelData.sampleTransactions

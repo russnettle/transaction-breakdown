@@ -109,13 +109,6 @@
 			path = Transaction;
 			sourceTree = "<group>";
 		};
-		21534154283FA7F400EF3E19 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		21534159283FA9EC00EF3E19 /* TransactionCategories  */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				3C3FCAAE26C57C650092AB11 /* README.md */,
-				21534154283FA7F400EF3E19 /* ViewModel */,
 				3CE226C926B2E43000B3D085 /* View */,
 				3CE226CA26B2E43B00B3D085 /* Model */,
 				3CE2268726B007D300B3D085 /* Assets.xcassets */,
