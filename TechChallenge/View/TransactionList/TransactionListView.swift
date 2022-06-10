@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransactionListView: View {
     @ObservedObject var viewModel: TransactionsViewModel
+    @State var showActionSheet: Bool = false
     
     var body: some View {
         VStack {
@@ -28,9 +29,29 @@ struct TransactionListView: View {
             .listRowBackground(Color.clear)
             
             TransactionSummaryView(viewModel: viewModel.totalSpendViewModel)
+        }.toolbar{
+            Button("Sort") {
+                showActionSheet.toggle()
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(viewModel.title)
+        .navigationTitle(viewModel.title) .actionSheet(isPresented: $showActionSheet,
+                                                       content: {
+                                                           ActionSheet(title: Text(""), buttons: [
+                                                            .default(Text(TransactionsViewModel.SortOrder.mostRecent.title)) {
+                                                                viewModel.sortOrder = .mostRecent
+                                                                showActionSheet = false
+                                                            },
+                                                                .default(Text(TransactionsViewModel.SortOrder.oldest.title)) {
+                                                                    viewModel.sortOrder = .oldest
+                                                                    showActionSheet = false
+                                                                },
+                                                            .default(Text("Cancel")) {
+                                                                showActionSheet = false
+                                                            }
+                                                           
+                                                           ])
+                                              })
     }
 }
 

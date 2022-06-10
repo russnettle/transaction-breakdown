@@ -13,7 +13,7 @@ struct TransactionSummaryView: View {
     @ObservedObject var viewModel: TransactionSummaryViewModel
     
     var body: some View {
-        HStack (alignment: .bottom){
+        HStack(alignment: .bottom) {
             Text(NSLocalizedString("transactionsList.totalSpend.summaryText", comment: ""))
                 .secondary()
             Spacer()

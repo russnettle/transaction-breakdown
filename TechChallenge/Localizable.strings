@@ -11,6 +11,9 @@
 "transactionsList.totalSpend.summaryText" = "Total spent:";
 "transactionsList.unpin" = "Select to unpin Transaction";
 "transactionsList.pin" = "Select to pin Transaction";
+"transactionsList.sortOrder.mostRecent" = "Most recent first";
+"transactionsList.sortOrder.oldest" = "Oldest first";
+"transactionsList.sortOrder.cancel" = "cancel";
 
 "insights.title" = "Insights";
 "insights.category" = "Category";

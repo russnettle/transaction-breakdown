@@ -193,6 +193,41 @@ class TransactionsViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.totalSpend, 334.49)
         
     }
+    
+    func testSortingNewestFirst() {
+        
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        viewModel.sortOrder = .oldest
+        
+        let firstDate = viewModel.filteredCategories[0].transaction.date
+        let secondDate = viewModel.filteredCategories[1].transaction.date
+        let thirdDate = viewModel.filteredCategories[2].transaction.date
+        let fourthDate = viewModel.filteredCategories[3].transaction.date
+        
+        XCTAssertTrue(firstDate < secondDate)
+        XCTAssertTrue(secondDate < thirdDate)
+        XCTAssertTrue(secondDate < thirdDate)
+        XCTAssertTrue(thirdDate < fourthDate)
+    }
+    
+    
+    func testSortingOldestFirst() {
+        
+        let sampleTransactions = ModelData.sampleTransactions
+        let viewModel: TransactionsViewModel = TransactionsViewModel(transactions: sampleTransactions)
+        viewModel.sortOrder = .mostRecent
+        
+        let firstDate = viewModel.filteredCategories[0].transaction.date
+        let secondDate = viewModel.filteredCategories[1].transaction.date
+        let thirdDate = viewModel.filteredCategories[2].transaction.date
+        let fourthDate = viewModel.filteredCategories[3].transaction.date
+        
+        XCTAssertTrue(firstDate > secondDate)
+        XCTAssertTrue(secondDate > thirdDate)
+        XCTAssertTrue(secondDate > thirdDate)
+        XCTAssertTrue(thirdDate > fourthDate)
+    }
 }
 
 

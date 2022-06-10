@@ -14,9 +14,6 @@ struct TransactionCategoriesView: View {
     let viewModel: TransactionCategoriesViewModel = TransactionCategoriesViewModel()
     var categorySelectionHandler: (TransactionModel.Category?) -> Void
     
-    init(categorySelectionHandler: @escaping (TransactionModel.Category?) -> Void) {
-        self.categorySelectionHandler = categorySelectionHandler
-    }
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -45,12 +42,12 @@ struct TransactionCategoriesView: View {
                         .category(color: transactionCategory.color)
                     }
                 }.padding(.leading, 10)
-                .accessibilityHint(viewModel.accessibilityHint)
+                    .accessibilityHint(viewModel.accessibilityHint)
                 
             }
         }
         .padding( .vertical, 15)
-            .background(Color.accentColor.opacity(0.8))
+        .background(Color.accentColor.opacity(0.8))
         
         
     }
